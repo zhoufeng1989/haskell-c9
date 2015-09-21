@@ -67,3 +67,16 @@ standard prelude simply by ```otherwise = True``` .
     +   avoid having th name a function that is only referenced once.
     
             odds n = map (\x -> \x * 2 + 1) [0..n-1]
+
++	Sections     
+	Functions such as + that are written between their two arguments are called **operators**. As we have already seen, any function with two arguments can be converted into an operator by enclosing the name of the function in single back quotes, such as ```7 div 2```.
+	
+	Any operator can be converted into a **curried function** that is written before its arguments by enclosing the name of the operator in parentheses.
+	In general, if ```⊕``` is an operator, then expressions of the form ```(⊕)```, ```( x ⊕)```, and ```(⊕ y )``` for arguments ```x``` and ```y``` are called **sections**, whose meaning as functions
+can be formalised using lambda expressions as follows:
+
+		(⊕) = λx → (λy → x ⊕ y)
+		(x ⊕) = λy → x ⊕ y
+		(⊕ y) = λx → x ⊕ y
+
+

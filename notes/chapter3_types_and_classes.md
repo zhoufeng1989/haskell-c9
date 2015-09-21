@@ -162,3 +162,25 @@ inequality using the following two methods:
     Note that the Num class does not provide a **division method**, but as we shall now
 see, division is handled separately using two special classes, one for integral
 numbers and one for fractional numbers.
+
++   Integral (inegral types)
+
+    This class contains types that are instances of the numeric class ```Num```,
+    but in addition whose values are integers, and support the methods of
+    integer division and integer remainder:
+
+        ```
+        div :: a -> a -> a
+        mod :: a -> a -> a
+        ```
+
++   Fractional (fractional types)
+
+    This class contains types that are instances of the numeric class
+    ```Num```,but in addition whose values are non-integral, and support the methods
+    of fractional division and fractional reciprocation:
+
+        ```
+        (/) :: a -> a -> a
+        recip :: a -> a
+        ```

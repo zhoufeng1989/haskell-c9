@@ -1,4 +1,4 @@
-import Prelude hiding (replicate)
+import Prelude hiding (replicate, length)
 sqrsum = sum [x * x | x <- [1..100]]
 
 replicate :: Int -> a -> [a]
@@ -24,3 +24,17 @@ concat xss = [x | xs <- xss, x <- xs]
 length :: [a] -> Int
 length xs = sum [1 | _ <- xs]
 
+pairs :: [a] -> [(a, a)]
+pairs xs = zip xs (tail xs)
+
+
+sorted :: Ord a => [a] -> Bool
+sorted xs = and [x <= y | (x, y) <- pairs xs]
+
+
+positions :: Eq a => a -> [a] -> [Int]
+positions x xs = [i | (y, i) <- zip xs [0..n], y == x]
+		 where n = length xs - 1
+
+scalar :: [Int] -> [Int] -> Int
+scalar xs ys = sum [x * y | (x, y) <- zip xs ys]
